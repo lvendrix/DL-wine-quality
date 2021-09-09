@@ -38,7 +38,7 @@ Create an AI model to predict the quality of a wine. By using an AI model, we wo
 
 ## v0 (Baseline)
 * No manipulation of data
-* Separation of 'bad'(quality < 6) and 'good' (quality >= 6) wines
+* Separation of 'bad'(quality < 6) and 'good' (quality >= 6) wines. The mean value was used to split the data into 2 sets.
 * Great unbalance of bad (2384) and good (4113) wines
 * 2 hidden layers (20, 10)
 * Epoch = 30
@@ -51,7 +51,7 @@ Create an AI model to predict the quality of a wine. By using an AI model, we wo
 ![](Visuals/0_Confusion_Matrix.png)
 
 ## v3 (Final)
-* Separation of 'bad'(quality < 7) and 'good' (quality >= 7) wines. Better predictions!
+* Separation of 'bad'(quality < 7) and 'good' (quality >= 7) wines.
 * Great balance of bad (5108) and good (5220) wines (upsampling)
 * After trials and errors, here are the best parameters found (for accuracy)
 * 4 hidden layers (30, 30, 20, 10)
@@ -68,7 +68,8 @@ Create an AI model to predict the quality of a wine. By using an AI model, we wo
 # Remarks
 * Lower results when normalising the data, so kept the data as it is
 * Tried feature engineering by adding the type of wine (red or white) and creating a sulfate ratio, but it didn't improve the model
-* More layers, more neurons, more epochs did improve the model's accuracy, but overfitting did happen sometimes. Had to look at both the accuracy and loss metrics, as well as the confusion matrix to get a good overview.
+* Splitting at 7 improved the model. Probably because wines of quality => 7 share more common features
+* More layers, more neurons, more epochs did improve the model's accuracy, but overfitting did happen sometimes. Had to look at both the accuracy and loss metrics, as well as the confusion matrix to get a good overview
 * Random Forest model has very high accuracy (0.96) on this dataset
 * KNN also has high accuracy (0.94)
 
